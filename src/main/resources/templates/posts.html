@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Code Blog</title>
+<!-- CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+	integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+	crossorigin="anonymous">
+
+</head>
+
+<body>
+
+	<header>
+
+		<!-- As a heading -->
+		<nav class="navbar navbar-light bg-light">
+			<span class="navbar-brand mb-0 h1" style="font-weight: bold;">MyCodeBlog</span>
+		</nav>
+
+	</header>
+
+	<section>
+
+		<div class="container" style="width: 60%; padding-bottom: 30px;">
+
+
+			<nav aria-label="breadcrumb" style="padding-top: 10px;">
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item active">
+						Posts
+					</li>
+				</ol>
+			</nav>
+
+			<div th:each="post : ${posts}" style="padding-bottom: 10px;">
+			<div class="card">
+				<div class="card-header">
+					<span th:text=${post.autor}></span>
+					<span th:text=${post.data}></span>
+				</div>
+				<div class="card-body">
+					<h5 class="card-title">
+						<a th:href="${(#mvc.url('PC#getPostDetails').arg(0, post.id)).build()}">
+							<span th:text=${post.titulo}></span>
+						</a>
+					</h5>
+					<p class="card-text">
+						<span th:utext=${#strings.abbreviate(post.texto,100)}></span>
+					</p>
+				</div>
+			</div>
+			</div>
+
+		</div>
+
+	</section>
+
+</body>
+</html>
