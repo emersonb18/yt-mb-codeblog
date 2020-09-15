@@ -10,6 +10,7 @@ public class CodeblogApplication {
 
 	public static void main(String[] args) {
 		System.out.println("branch02");
+		System.out.println("branch 01");
 		SpringApplication.run(CodeblogApplication.class, args);
 	}
 
