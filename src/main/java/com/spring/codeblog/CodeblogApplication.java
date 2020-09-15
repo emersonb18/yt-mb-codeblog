@@ -9,6 +9,7 @@ import com.spring.codeblog.utils.DummyDate;
 public class CodeblogApplication {
 
 	public static void main(String[] args) {
+		System.out.println("branch02");
 		SpringApplication.run(CodeblogApplication.class, args);
 	}
 
